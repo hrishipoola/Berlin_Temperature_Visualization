@@ -1,1 +1,25 @@
-# Berlin_Temperature_Visualization
+Berlin Temperature Visualization
+
+Table of Contents
+
+    Introduction
+    Install & Import Packages
+    Access Data from NOAA
+    Plot Station Using mplleaflet
+    Transform Data
+    Plot Data
+    Future Areas to Explore
+
+1. Introduction
+
+Extreme temperatures are an increasingly important topic to understand. As Berlin is my home, it would be great to visualize how its temperatures fared in 2019. Let's create an engaging, multidimensional visual of 2019 record highs and lows compared to the maximum and minimum temperatures for dates the decade before (from 2009 through 2018). This could be useful for fellow Berliners, public policy planners, or specialists looking to communicate similar patterns and trends in other areas.
+
+We'll access data from the NOAA's NCDC website (https://www.ncdc.noaa.gov/cdo-web/) using the search tool for daily summaries from January 1, 2009 through December 31, 2019 for stations in Berlin, Germany. We'll select the Schonefeld Airport station (GME00127930) as it has 100% coverage for these dates. Let's select air tempature information and the output format as 'Custom GHCN-Daily CSV'. Voila, a few minutes later, it's in our email inbox. NOAA has data from well over 100,000 weather stations around the world if you'd like to understand how your hometown is faring.
+
+First, we'll create a quick mplleaflet geo plot of the station using its latitude and longitude.
+
+Next, in transforming the data, let's slice what we need, use datetime methods like to_datetime and strftime on the dates, remove all February 29s (leap year day), group by month_day using groupby, and determine the max and min highs and lows for each date using numpy functions .min() and .max(). We'll then perform a 'left' merge to get our final dataframe. Let's also create record high and low series for 2019 that include temperatures above and below the max and min, respectively, for each date the decade before (2009-2018). A quick check on the record high and low dataframes reveals that in 2019, Berlin had 45 days with record high temperatures and 21 days with record low temperatures.
+
+Lastly, for plotting, let's be sure to create a visual that's truthful (includes relevant data, labels, scaling), functional, beautiful (clean and engaging), and insightful for fellow Berliners.
+
+As the main purpose here is to create an engaging end-visual, there's still a ton more we could explore, including interactive visuals and web apps, distributions and spreads, additional groupings by dates, incorporating other Berlin weather station data and precipitation data, broadening the timeframe, and forecasting.
